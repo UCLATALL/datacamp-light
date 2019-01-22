@@ -58,9 +58,15 @@ export default (element: HTMLDivElement, hub: Hub) => {
     const showRunButton =
       element.hasAttribute("data-show-run-button") &&
       element.getAttribute("data-show-run-button").toLowerCase() !== "false";
+
     const noLazyLoad =
       element.hasAttribute("data-no-lazy-load") &&
       element.getAttribute("data-no-lazy-load").toLowerCase() !== "false";
+
+    const showSolutionBefore =
+      !element.hasAttribute("data-show-solution-before") ||
+      element.getAttribute("data-show-solution-before").toLowerCase() !==
+        "false";
 
     // Get settings
     Object.assign(settings, {
@@ -71,6 +77,7 @@ export default (element: HTMLDivElement, hub: Hub) => {
       sct: getText("sct"),
       solution: getText("solution"),
       showRunButton: showRunButton,
+      showSolutionBefore: showSolutionBefore,
       noLazyLoad: noLazyLoad,
     });
   }
